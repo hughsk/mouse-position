@@ -4,7 +4,7 @@
   "description": "A module for getting the current mouse position on an element, designed for use in games and animations.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "beefy test.js --open"
   },
   "repository": {
     "type": "git",
