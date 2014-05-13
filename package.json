@@ -1,0 +1,33 @@
+{
+  "name": "mouse-position",
+  "version": "0.0.0",
+  "description": "A module for getting the current mouse position on an element, designed for use in games and animations.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hughsk/mouse-position.git"
+  },
+  "author": "Hugh Kennedy <hughskennedy@gmail.com> (http://hughsk.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hughsk/mouse-position/issues"
+  },
+  "homepage": "https://github.com/hughsk/mouse-position",
+  "dependencies": {
+    "events": "^1.0.1"
+  },
+  "devDependencies": {
+    "beefy": "^1.1.0"
+  },
+  "keywords": [
+    "mouse",
+    "position",
+    "movement",
+    "speed",
+    "check",
+    "game"
+  ]
+}
