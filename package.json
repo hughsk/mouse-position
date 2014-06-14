@@ -1,6 +1,6 @@
 {
   "name": "mouse-position",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A module for getting the current mouse position on an element, designed for use in games and animations.",
   "main": "index.js",
   "scripts": {
