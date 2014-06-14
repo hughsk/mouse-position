@@ -7,10 +7,14 @@ use in games and animations.
 
 [![NPM](https://nodei.co/npm/mouse-position.png)](https://nodei.co/npm/mouse-position/)
 
-### mouse = mousePosition([element])
+### mouse = mousePosition([element], [listener])
 
 Start watching `element` for `mousemove` events. If you don't pass an element,
 `mouse` will watch the entire browser window.
+
+`listener` will attach the listener event to another element – helpful, for
+example, to catch movement across a larger area but still receive positions
+relative to `element`.
 
 ### mouse.x
 
