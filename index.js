@@ -5,10 +5,9 @@ module.exports = attach
 function attach(element, listener) {
   var position = new Emitter
 
-  position.x = 0
-  position.y = 0
-  position.prevX = 0
-  position.prevY = 0
+  position[0] = 0
+  position[1] = 0
+  position.prev = [0, 0]
   position.flush = flush
 
   if (typeof window === 'undefined') {
@@ -21,18 +20,18 @@ function attach(element, listener) {
        element === document.body
     || element === window
   ) ? function(e) {
-      position.prevX = position.x
-      position.prevY = position.y
-      position.x = e.clientX
-      position.y = e.clientY
+      position.prev[0] = position[0]
+      position.prev[1] = position[1]
+      position[0] = e.clientX
+      position[1] = e.clientY
       position.emit('move', e)
     }
     : function(e) {
-      position.prevX = position.x
-      position.prevY = position.y
+      position.prev[0] = position[0]
+      position.prev[1] = position[1]
       var bounds = element.getBoundingClientRect()
-      position.x = e.clientX - bounds.left
-      position.y = e.clientY - bounds.top
+      position[0] = e.clientX - bounds.left
+      position[1] = e.clientY - bounds.top
       position.emit('move', e)
     }
   , false)
@@ -40,7 +39,7 @@ function attach(element, listener) {
   return position
 
   function flush() {
-    this.prevX = this.x
-    this.prevY = this.y
+    this.prev[0] = this.x
+    this.prev[1] = this.y
   }
 }

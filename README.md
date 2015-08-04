@@ -16,19 +16,19 @@ Start watching `element` for `mousemove` events. If you don't pass an element,
 example, to catch movement across a larger area but still receive positions
 relative to `element`.
 
-### mouse.x
+### mouse[0]
 
 The current horizontal position of the mouse, in pixels.
 
-### mouse.y
+### mouse[1]
 
 The current vertical position of the mouse, in pixels.
 
-### mouse.prevX
+### mouse.prev[0]
 
 The previous horizontal position of the mouse, in pixels.
 
-### mouse.prevY
+### mouse.prev[1]
 
 The previous vertical position of the mouse, in pixels.
 
