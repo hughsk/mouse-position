@@ -39,7 +39,7 @@ function attach(element, listener) {
   return position
 
   function flush() {
-    this.prev[0] = this.x
-    this.prev[1] = this.y
+    position.prev[0] = position[0]
+    position.prev[1] = position[1]
   }
 }
