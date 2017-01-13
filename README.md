@@ -42,6 +42,10 @@ Call this method at the end of each frame to update the `prevX` and `prevY`
 values – you won't get `mousemove` events every frame, so if you don't update
 this you might get incorrect values.
 
+### mouse.dispose()
+
+Call this method to remove the internal `mousemove` event listener and any `move` callbacks on the `mouse` object.
+
 ## License
 
 MIT. See [LICENSE.md](http://github.com/hughsk/mouse-position/blob/master/LICENSE.md) for details.
