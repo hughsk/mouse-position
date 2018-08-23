@@ -9,6 +9,7 @@ function attach(element, listener) {
   position[1] = 0
   position.prev = [0, 0]
   position.flush = flush
+  position.dispose = dispose
 
   if (typeof window === 'undefined') {
     return position
@@ -16,16 +17,14 @@ function attach(element, listener) {
 
   listener = listener || element || window
   element  = element  || document.body
-  listener.addEventListener('mousemove', (
-       element === document.body
-    || element === window
+  var handler = (element === document.body || element === window
   ) ? function(e) {
-      position.prev[0] = position[0]
-      position.prev[1] = position[1]
-      position[0] = e.clientX
-      position[1] = e.clientY
-      position.emit('move', e)
-    }
+    position.prev[0] = position[0]
+    position.prev[1] = position[1]
+    position[0] = e.clientX
+    position[1] = e.clientY
+    position.emit('move', e)
+  }
     : function(e) {
       position.prev[0] = position[0]
       position.prev[1] = position[1]
@@ -34,7 +33,7 @@ function attach(element, listener) {
       position[1] = e.clientY - bounds.top
       position.emit('move', e)
     }
-  , false)
+  listener.addEventListener('mousemove', handler, false)
 
   return position
 
@@ -42,4 +41,10 @@ function attach(element, listener) {
     position.prev[0] = position[0]
     position.prev[1] = position[1]
   }
+
+  function dispose() {
+    position.removeAllListeners('move')
+    listener.removeEventListener('mousemove', handler)
+  }
+
 }
